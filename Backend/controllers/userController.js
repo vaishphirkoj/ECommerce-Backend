@@ -229,7 +229,7 @@ exports.updateUserRole = catchAsyncError(async (req, res, next) => {
 //DELETE USER(ADMIN)
 exports.deleteUser = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.params.id);
-  //WE WILL ADD CLOUDINARY LATER
+ 
 
   if (!user) {
     return next(
