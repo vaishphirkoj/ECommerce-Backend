@@ -21,10 +21,6 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
 
   const token = user.getJWTToken();
 
-  // res.status(201).json({
-  //   success: true,
-  //   token,
-  // });
   sendToken(user, 201, res);
 });
 
@@ -47,7 +43,6 @@ exports.loginUSer = catchAsyncError(async (req, res, next) => {
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Invalid email or password", 401));
   }
-  // const token = user.getJWTToken();
 
   // res.status(200).json({
   //   success: true,
@@ -173,7 +168,7 @@ exports.updateProfile = catchAsyncError(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
   };
-  //WE WILL ADD CLOUDINARY LATER
+  
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
     runValidators: true,
@@ -229,7 +224,7 @@ exports.updateUserRole = catchAsyncError(async (req, res, next) => {
 //DELETE USER(ADMIN)
 exports.deleteUser = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.params.id);
-  //WE WILL ADD CLOUDINARY LATER
+ 
 
   if (!user) {
     return next(
