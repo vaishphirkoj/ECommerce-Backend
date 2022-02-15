@@ -44,7 +44,7 @@ exports.loginUSer = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("Invalid email or password", 401));
   }
 
-  // res.status(200).json({
+  // res.status(200)
   //   success: true,
   //   token,
   // });
