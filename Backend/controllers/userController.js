@@ -45,7 +45,7 @@ exports.loginUSer = catchAsyncError(async (req, res, next) => {
   }
 
  
-  //   token,
+
   // });
   sendToken(user, 200, res);
 });
